@@ -7,7 +7,7 @@
 					(
 						id int not null AUTO_INCREMENT PRIMARY KEY,
 						username varchar(50),
-						email varchar(150),
+						email varchar(150) UNIQUE KEY,
 						password varchar(200),
 						session_token text,
 						activate_token text,
