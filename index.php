@@ -1,3 +1,3 @@
 <?php  
-	ob_start();
-	@header('location: cms/index');
+	include $_SERVER['DOCUMENT_ROOT'].'config/init.php';
+	redirect('cms/index');
