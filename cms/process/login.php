@@ -28,6 +28,9 @@
 										'session_token' => $token
 									);
 									$user->updateUserByEmail($datas,$_SESSION['user_email']);
+									if (isset($_POST['rememberme']) && !empty($_POST['rememberme'] && $_POST['rememberme']=='on')) {
+										setcookie('_auth_user',$token,time()+(60*60*24*7),'/');
+									}
 
 									redirect('../index','success','Welcome to Dashboard');
 
