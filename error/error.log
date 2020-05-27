@@ -1,1 +1,2 @@
 May 22, 2020 05:18:24 pm : (addData) : SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pasword' in 'field list'
+May 27, 2020 04:11:09 pm : (run Query database) : SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'admin@magazine.com' for key 'email'
