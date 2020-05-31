@@ -261,9 +261,17 @@
 							</div>
 							<div class="archive-widget">
 								<ul>
-									<li><a href="#">Jan 2018</a></li>
-									<li><a href="#">Feb 2018</a></li>
-									<li><a href="#">Mar 2018</a></li>
+									<?php 
+										$Archive = new archive();
+										$archives = $Archive->getAllArchive();
+										if ($archives) {
+											foreach ($archives as $key => $archive) {
+									?>
+									<li><a href="archive?id=<?php echo $archive->id ?>"><?php echo date('M d, Y',strtotime($archive->date)); ?></a></li>
+									<?php
+											}
+										}
+									?>
 								</ul>
 							</div>
 						</div>

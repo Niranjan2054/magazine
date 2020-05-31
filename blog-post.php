@@ -7,7 +7,10 @@
 			$blog_info = $Blog->getBlogbyId($blog_id);
 			if ($blog_info) {
 				$blog_info= $blog_info[0];
-				// debugger($blog_info);
+				$data=array(
+					'view' => $blog_info->view + 1
+				);
+				$Blog->updateBlogById($data,$blog_id);
 			}else{
 				redirect('index');
 			}

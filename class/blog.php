@@ -29,6 +29,22 @@
 			return $this->getData($args,$is_die);
 		}
 
+		public function getBlogbyDate($date,$is_die=false){
+			$args = array(
+				'fields' => ['id',
+					            'title',
+					            'content',
+					            'featured',
+					            'categoryid',
+					            '(SELECT categoryname from categories where id = categoryid) as category',
+					            'view',
+					            'image',
+					        	'created_date'],
+				'where' => " where created_date LIKE '".$date."%'"
+			);
+			return $this->getData($args,$is_die);
+		}
+
 		public function getAllBlog($is_die=false){
 			$args = array(
 				'fields' => ['id',
