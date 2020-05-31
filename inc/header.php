@@ -157,8 +157,34 @@
 			</div>
 			<!-- /Page Header -->
 			<?php
+				}else if (pathinfo($_SERVER['PHP_SELF'],PATHINFO_FILENAME)=='blog-post') {
+					if (isset($blog_info->image) && !empty($blog_info->image) && file_exists(UPLOAD_PATH.'blog/'.$blog_info->image)) {
+						$thumbnail = UPLOAD_URL.'blog/'.$blog_info->image;
+					}else{
+						$thumbnail = UPLOAD_URL.'noimg.jpg';
+					}
+			?>
+			<div id="post-header" class="page-header">
+				<div class="background-img" style="background-image: url('<?php echo $thumbnail ?>');"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-10">
+							<div class="post-meta">
+								<a class="post-category <?php echo CAT_COLOR[$blog_info->categoryid%4] ?>" href="category?id=<?php echo $blog_info->categoryid ?>"><?php echo $blog_info->category; ?></a>
+								<span class="post-date"><?php echo date("M d, Y",strtotime($blog_info->created_date)); ?></span>
+							</div>
+							<h1><?php echo $blog_info->title; ?></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php
 				}
 			?>
 			
 		</header>
 		<!-- /Header -->
+
+
+
+			

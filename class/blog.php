@@ -11,6 +11,15 @@
 
 		public function getBlogbyId($blog_id,$is_die=false){
 			$args = array(
+				'fields' => ['id',
+					            'title',
+					            'content',
+					            'featured',
+					            'categoryid',
+					            '(SELECT categoryname from categories where id = categoryid) as category',
+					            'view',
+					            'image',
+					        	'created_date'],
 				'where' => array(
 						'or' => array(
 							'id' => $blog_id,
